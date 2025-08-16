@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    /* Franchir Color System - EXACT SPECIFICATIONS */
+    --primary-blue: #1863DC;      /* NEW blue specified */
+    --secondary-red: #ee585b;     /* Exact secondary red specified */
+    --bg-cream: #f4efdf;          /* Exact background cream specified */
+    
+    --bg-white: #FFFFFF;
+    --bg-alt: #F4F4F4;
+    
+    /* Legacy support - mapped to new colors */
+    --accent-red: #ee585b;
+    --header-blue: #1863DC;
+    
+    --text-primary: #212121;
+    --text-secondary: #666666;
+    --text-light: #333333;
+    --text-dark: #222222;
+    
+    --border-color: #DDDDDD;
+    --border-alt: #D9D9D9;
+    --separator: #EBEBEB;
+    --separator-alt: #EDEDED;
+    
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    
+    /* Layout */
+    --container-width: 1080px;
+    --border-radius: 2px;
+    --transition: all 0.3s ease;
+
+    /* Shadcn overrides with Franchir colors - EXACT SPECIFICATIONS */
+    --background: 45 25% 95%; /* #f4efdf cream background */
+    --foreground: 0 0% 12.9%; /* #212121 equivalent */
+
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 0 0% 12.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12.9%;
+ 
+    --primary: 216 74% 49%; /* #1863DC exact blue */
+    --primary-foreground: 0 0% 100%;
+ 
+    --secondary: 1 84% 64%; /* #ee585b exact red */
+    --secondary-foreground: 0 0% 100%;
+ 
+    --muted: 45 25% 95%; /* #f4efdf cream */
+    --muted-foreground: 0 0% 40%; /* #666666 equivalent */
+ 
+    --accent: 1 84% 64%; /* #ee585b exact red */
+    --accent-foreground: 0 0% 100%;
+ 
+    --destructive: 1 84% 64%; /* #ee585b exact red */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 86.7%; /* #DDDDDD equivalent */
+    --input: 0 0% 86.7%;
+    --ring: 216 74% 49%; /* #1863DC exact blue */
+ 
+    --radius: 0.125rem; /* 2px */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+
+  /* Base Typography */
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg-cream);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  /* Franchir Specific Heading Styles */
+  .franchir-h1 {
+    font-size: 33px;
+    font-weight: 500;
+    font-family: var(--font-heading);
+    color: var(--primary-blue);
+    line-height: 52.8px;
+  }
+
+  .franchir-h2 {
+    font-size: 60px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: #000000;
+    line-height: 66px;
+  }
+
+  .franchir-h3 {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: var(--font-heading);
+    color: var(--text-light);
+    line-height: 23.4px;
+  }
+
+  .franchir-body {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    line-height: 23.8px;
+  }
+
+  .franchir-paragraph {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    line-height: 24px;
+    margin-bottom: 12px;
+  }
+
+  /* Franchir Button System */
+  .btn-franchir-primary {
+    background-color: var(--primary-blue);
+    color: #FFFFFF;
+    border: 1.5px solid var(--primary-blue);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  .btn-franchir-primary:hover {
+    background-color: transparent;
+    color: var(--primary-blue);
+  }
+
+  .btn-franchir-secondary {
+    background-color: transparent;
+    color: var(--primary-blue);
+    border: 1.5px solid var(--primary-blue);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  .btn-franchir-secondary:hover {
+    background-color: var(--primary-blue);
+    color: #FFFFFF;
+  }
+
+  .btn-franchir-contact {
+    background-color: transparent;
+    color: var(--secondary-red);
+    border: 1.5px solid var(--secondary-red);
+    border-radius: 3px;
+    padding: 6px 20px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  .btn-franchir-contact:hover {
+    background-color: var(--secondary-red);
+    color: #FFFFFF;
+  }
+
+  /* Franchir Container */
+  .franchir-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 9px 0px 0px;
+    width: 100%;
+  }
+
+  /* Franchir Navigation */
+  .franchir-nav {
+    background-color: transparent;
+    height: 47px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .franchir-nav-link {
+    color: var(--secondary-red);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0px 0px 33px;
+    font-family: var(--font-body);
+    transition: var(--transition);
+  }
+
+  .franchir-nav-link:hover {
+    color: var(--primary-blue);
+  }
+
+  /* Franchir Cards */
+  .franchir-card {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+  }
+
+  .franchir-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Color Utilities - EXACT FRANCHIR SPECIFICATIONS */
+  .text-franchir-primary { color: var(--text-primary); }
+  .text-franchir-secondary { color: var(--text-secondary); }
+  .text-franchir-light { color: var(--text-light); }
+  .text-franchir-dark { color: var(--text-dark); }
+  .text-franchir-blue { color: var(--primary-blue); }
+  .text-franchir-red { color: var(--secondary-red); }
+
+  .bg-franchir-cream { background-color: var(--bg-cream); }
+  .bg-franchir-white { background-color: var(--bg-white); }
+  .bg-franchir-alt { background-color: var(--bg-alt); }
+  .bg-franchir-blue { background-color: var(--primary-blue); }
+  .bg-franchir-red { background-color: var(--secondary-red); }
+  .bg-franchir-dark { background-color: var(--text-dark); }
+}
